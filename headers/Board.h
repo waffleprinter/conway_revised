@@ -2,6 +2,7 @@
 #define CONWAY_REVISED_BOARD_H
 
 #include <vector>
+#include <set>
 #include <SFML/Graphics.hpp>
 
 class Board {
@@ -12,6 +13,7 @@ private:
     sf::Vector2f position;
 
     std::vector<std::vector<bool>> cells;
+    std::set<std::pair<int, int>> changedCells;
 
 public:
     Board(int cellSize, int rows, int cols, sf::Vector2f position);
