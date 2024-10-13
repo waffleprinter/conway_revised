@@ -77,14 +77,27 @@ void Board::update() {
 }
 
 void Board::draw(sf::RenderWindow &window) {
+    sf::VertexArray vertices(sf::Quads, this->rows * this->cols * 4);
+
     for (int row = 0; row < this->rows; row++) {
         for (int col = 0; col < this->cols; col++) {
-            sf::RectangleShape cell;
-            cell.setSize(sf::Vector2f(this->cellSize, this->cellSize));
-            cell.setPosition(this->position.x + col * (this->cellSize + 1), this->position.y + row * (this->cellSize + 1));
-            cell.setFillColor(this->cells[row][col] ? sf::Color::Green : sf::Color::Black);
+            int index = (row * this->cols + col) * 4;
 
-            window.draw(cell);
+            float x = this->position.x + col * (cellSize + 1);
+            float y = this->position.y + row * (cellSize + 1);
+
+            vertices[index].position = sf::Vector2f(x, y);
+            vertices[index + 1].position = sf::Vector2f(x + this->cellSize, y);
+            vertices[index + 2].position = sf::Vector2f(x + this->cellSize, y + this->cellSize);
+            vertices[index + 3].position = sf::Vector2f(x, y + this->cellSize);
+
+            sf::Color color = this->cells[row][col] ? sf::Color::Green : sf::Color::Black;
+
+            for (int i = 0; i < 4; i++) {
+                vertices[index + i].color = color;
+            }
         }
     }
+
+    window.draw(vertices);
 }
