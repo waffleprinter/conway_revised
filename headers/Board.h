@@ -18,6 +18,7 @@ public:
     Board(int cellSize, int rows, int cols, sf::Vector2f position);
 
     void toggleCell(int row, int col);
+    void updateLiveNeighbors(int row, int col, int change);
     void update();
     void draw(sf::RenderWindow &window);
 };
