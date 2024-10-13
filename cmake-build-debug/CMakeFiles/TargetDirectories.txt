@@ -1,0 +1,3 @@
+C:/Users/jccpa/CLionProjects/conway_revised/cmake-build-debug/CMakeFiles/conway_revised.dir
+C:/Users/jccpa/CLionProjects/conway_revised/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/jccpa/CLionProjects/conway_revised/cmake-build-debug/CMakeFiles/rebuild_cache.dir
