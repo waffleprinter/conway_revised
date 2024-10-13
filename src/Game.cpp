@@ -6,13 +6,14 @@ Game::Game(Board &board) : board(board) {
 
 void Game::pollEvents() {
     while (this->window.pollEvent(this->event)) {
-        if (event.type == sf::Event::Closed)
-            window.close();
+        if (this->event.type == sf::Event::Closed)
+            this->window.close();
 
-        if (event.type == sf::Event::KeyPressed) {
-            if (event.key.code == sf::Keyboard::Escape)
-                window.close();
-            if (event.key.code == sf::Keyboard::Space)
+        if (this->event.type == sf::Event::KeyPressed) {
+            if (this->event.key.code == sf::Keyboard::Escape)
+                this->window.close();
+
+            if (this->event.key.code == sf::Keyboard::Space)
                 this->isPaused = !this->isPaused;
         }
     }
