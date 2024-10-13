@@ -20,6 +20,18 @@ void Game::pollEvents() {
                 this->board.update();
             }
         }
+
+        if (this->event.type == sf::Event::MouseButtonPressed) {
+            if (event.mouseButton.button == sf::Mouse::Left) {
+                float cellSize = this->board.getCellSize();
+                sf::Vector2f boardPosition = this->board.getPosition();
+
+                int row = (this->event.mouseButton.y - boardPosition.y) / (cellSize + 1);
+                int col = (this->event.mouseButton.x - boardPosition.x) / (cellSize + 1);
+
+                this->board.toggleCell(row, col);
+            }
+        }
     }
 }
 
