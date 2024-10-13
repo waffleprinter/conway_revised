@@ -9,6 +9,14 @@ Board::Board(float cellSize, int rows, int cols, sf::Vector2f position) {
     this->cells = std::vector<std::vector<bool>>(this->rows, std::vector<bool>(this->cols, false));
 }
 
+sf::Vector2f Board::getPosition() {
+    return this->position;
+}
+
+float Board::getCellSize() {
+    return this->cellSize;
+}
+
 void Board::toggleCell(int row, int col) {
     this->cells[row][col] = !this->cells[row][col];
     this->changedCells.insert({row, col});

@@ -18,7 +18,10 @@ private:
 public:
     Board(float cellSize, int rows, int cols, sf::Vector2f position);
 
+    sf::Vector2f getPosition();
+    float getCellSize();
     void toggleCell(int row, int col);
+
     void update();
     void draw(sf::RenderWindow &window);
 };
