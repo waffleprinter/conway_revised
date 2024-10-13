@@ -15,6 +15,10 @@ void Game::pollEvents() {
 
             if (this->event.key.code == sf::Keyboard::Space)
                 this->isPaused = !this->isPaused;
+
+            if (this->event.key.code == sf::Keyboard::Right && this->isPaused) {
+                this->board.update();
+            }
         }
     }
 }
