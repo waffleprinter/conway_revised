@@ -12,22 +12,6 @@ Board::Board(int cellSize, int rows, int cols, sf::Vector2f position) {
 
 void Board::toggleCell(int row, int col) {
     this->cells[row][col] = !this->cells[row][col];
-    updateLiveNeighbors(row, col, this->cells[row][col] ? 1 : -1);
-}
-
-void Board::updateLiveNeighbors(int row, int col, int change) {
-    for (int i = -1; i <= 1; i++) {
-        for (int j = -1; j <= 1; j++) {
-            int neighborRow = row + i;
-            int neighborCol = col + j;
-
-            if (row == neighborRow && col == neighborCol)
-                continue;
-
-            if (0 <= neighborRow && neighborRow < this->rows && 0 <= neighborCol && neighborCol < this->cols)
-                this->liveNeighbors[neighborRow][neighborCol] += change;
-        }
-    }
 }
 
 void Board::update() {
@@ -35,5 +19,14 @@ void Board::update() {
 }
 
 void Board::draw(sf::RenderWindow &window) {
+    for (int row = 0; row < this->rows; row++) {
+        for (int col = 0; col < this->cols; col++) {
+            sf::RectangleShape cell;
+            cell.setSize(sf::Vector2f(this->cellSize, this->cellSize));
+            cell.setPosition(this->position.x + col * (this->cellSize + 1), this->position.y + row * (this->cellSize + 1));
+            cell.setFillColor(this->cells[row][col] ? sf::Color::Green : sf::Color::Black);
 
+            window.draw(cell);
+        }
+    }
 }
