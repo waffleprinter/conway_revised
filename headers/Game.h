@@ -10,7 +10,7 @@ private:
     sf::Event event{};
     Board board;
 
-    bool isPaused = false;
+    bool isPaused = true;
 
     void pollEvents();
     void update();
