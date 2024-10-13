@@ -10,7 +10,9 @@ private:
     int rows;
     int cols;
     sf::Vector2f position;
+
     std::vector<std::vector<bool>> cells;
+    std::vector<std::vector<int>> liveNeighbors;
 
 public:
     Board(int cellSize, int rows, int cols, sf::Vector2f position);
