@@ -1,6 +1,6 @@
 #include "Board.h"
 
-Board::Board(int cellSize, int rows, int cols, sf::Vector2f position) {
+Board::Board(float cellSize, int rows, int cols, sf::Vector2f position) {
     this->cellSize = cellSize;
     this->rows = rows;
     this->cols = cols;
@@ -15,7 +15,7 @@ void Board::toggleCell(int row, int col) {
 }
 
 void Board::update() {
-    std::set<std::pair<int, int>> cellsToCheck;
+    std::set<std::pair<int, int>> cellsToCheck; // cellsToCheck = changedCells + neighbors of changedCells
 
     for (const std::pair<int, int> &cell : this->changedCells) {
         cellsToCheck.insert(cell);
@@ -36,8 +36,9 @@ void Board::update() {
         }
     }
 
-    this->changedCells.clear();
+    this->changedCells.clear(); // We want a clean slate for the new changes
 
+    // Temporary vector since, otherwise, changing a cell would inadvertently affect the next cell
     std::vector<std::vector<bool>> newCells = this->cells;
 
     for (const std::pair<int, int> &cell : cellsToCheck) {
@@ -60,6 +61,7 @@ void Board::update() {
             }
         }
 
+        // Update cells based on rules of Conway's Game of Life
         if (this->cells[row][col]) {
             if (liveNeighbors < 2 || liveNeighbors > 3) {
                 newCells[row][col] = false;
@@ -83,8 +85,8 @@ void Board::draw(sf::RenderWindow &window) {
         for (int col = 0; col < this->cols; col++) {
             int index = (row * this->cols + col) * 4;
 
-            float x = this->position.x + col * (cellSize + 1);
-            float y = this->position.y + row * (cellSize + 1);
+            float x = this->position.x + (float)col * (cellSize + 1);
+            float y = this->position.y + (float)row * (cellSize + 1);
 
             vertices[index].position = sf::Vector2f(x, y);
             vertices[index + 1].position = sf::Vector2f(x + this->cellSize, y);

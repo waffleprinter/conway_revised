@@ -7,7 +7,7 @@
 
 class Board {
 private:
-    int cellSize;
+    float cellSize;
     int rows;
     int cols;
     sf::Vector2f position;
@@ -16,7 +16,7 @@ private:
     std::set<std::pair<int, int>> changedCells;
 
 public:
-    Board(int cellSize, int rows, int cols, sf::Vector2f position);
+    Board(float cellSize, int rows, int cols, sf::Vector2f position);
 
     void toggleCell(int row, int col);
     void update();
