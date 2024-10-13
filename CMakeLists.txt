@@ -5,7 +5,9 @@ set(CMAKE_CXX_STANDARD 20)
 
 add_executable(conway_revised src/main.cpp
         src/Board.cpp
-        headers/Board.h)
+        headers/Board.h
+        src/Game.cpp
+        headers/Game.h)
 
 include_directories(headers c:/SFML/include)
 
