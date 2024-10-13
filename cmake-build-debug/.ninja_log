@@ -1,3 +1,9 @@
 # ninja log v6
 5	595	7504790776880865	CMakeFiles/conway_revised.dir/src/main.cpp.obj	7e67282337c6444f
 596	681	7504790782791241	conway_revised.exe	4b64ec6c6c78cffb
+3	468	7504983260577245	build.ninja	b355d9d512d7e69d
+1	634	7504983260792623	CMakeFiles/conway_revised.dir/src/main.cpp.obj	7e67282337c6444f
+4	811	7504983260823176	CMakeFiles/conway_revised.dir/src/Board.cpp.obj	b6e101038cde9e9f
+811	937	7504983268894552	conway_revised.exe	7efe174d6d0854ae
+5	633	7504983439550667	CMakeFiles/conway_revised.dir/src/main.cpp.obj	7e67282337c6444f
+634	750	7504983445833775	conway_revised.exe	7efe174d6d0854ae

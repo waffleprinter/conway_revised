@@ -5,7 +5,7 @@
 #include "Board.h"
 
 int main() {
-    sf::RenderWindow window(sf::VideoMode(720, 480), "Conway Revised", sf::Style::Titlebar | sf::Style::Close);
+    sf::RenderWindow window(sf::VideoMode(1080, 720), "Conway Revised", sf::Style::Titlebar | sf::Style::Close);
     sf::Event event;
 
     Board board = Board(10, 100, 100, sf::Vector2f(0, 0));
