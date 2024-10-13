@@ -7,7 +7,6 @@ Board::Board(int cellSize, int rows, int cols, sf::Vector2f position) {
     this->position = position;
 
     this->cells = std::vector<std::vector<bool>>(this->rows, std::vector<bool>(this->cols, false));
-    this->liveNeighbors = std::vector<std::vector<int>>(this->rows, std::vector<int>(this->cols, 0));
 }
 
 void Board::toggleCell(int row, int col) {
