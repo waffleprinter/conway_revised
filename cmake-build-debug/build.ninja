@@ -63,6 +63,13 @@ build CMakeFiles/conway_revised.dir/src/Board.cpp.obj: CXX_COMPILER__conway_revi
   OBJECT_DIR = CMakeFiles\conway_revised.dir
   OBJECT_FILE_DIR = CMakeFiles\conway_revised.dir\src
 
+build CMakeFiles/conway_revised.dir/src/Game.cpp.obj: CXX_COMPILER__conway_revised_unscanned_Debug C$:/Users/jccpa/CLionProjects/conway_revised/src/Game.cpp || cmake_object_order_depends_target_conway_revised
+  DEP_FILE = CMakeFiles\conway_revised.dir\src\Game.cpp.obj.d
+  FLAGS = -g -std=gnu++20 -fdiagnostics-color=always
+  INCLUDES = -IC:/Users/jccpa/CLionProjects/conway_revised/headers -Ic:/SFML/include -IC:/SFML/include
+  OBJECT_DIR = CMakeFiles\conway_revised.dir
+  OBJECT_FILE_DIR = CMakeFiles\conway_revised.dir\src
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target conway_revised
@@ -71,7 +78,7 @@ build CMakeFiles/conway_revised.dir/src/Board.cpp.obj: CXX_COMPILER__conway_revi
 #############################################
 # Link the executable conway_revised.exe
 
-build conway_revised.exe: CXX_EXECUTABLE_LINKER__conway_revised_Debug CMakeFiles/conway_revised.dir/src/main.cpp.obj CMakeFiles/conway_revised.dir/src/Board.cpp.obj | C$:/SFML/lib/libsfml-system-d.a C$:/SFML/lib/libsfml-window-d.a C$:/SFML/lib/libsfml-graphics-d.a
+build conway_revised.exe: CXX_EXECUTABLE_LINKER__conway_revised_Debug CMakeFiles/conway_revised.dir/src/main.cpp.obj CMakeFiles/conway_revised.dir/src/Board.cpp.obj CMakeFiles/conway_revised.dir/src/Game.cpp.obj | C$:/SFML/lib/libsfml-system-d.a C$:/SFML/lib/libsfml-window-d.a C$:/SFML/lib/libsfml-graphics-d.a
   FLAGS = -g
   LINK_LIBRARIES = C:/SFML/lib/libsfml-system-d.a  C:/SFML/lib/libsfml-window-d.a  C:/SFML/lib/libsfml-graphics-d.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\conway_revised.dir
