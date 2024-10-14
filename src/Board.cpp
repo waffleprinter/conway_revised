@@ -18,6 +18,8 @@ float Board::getCellSize() {
 }
 
 void Board::toggleCell(int row, int col) {
+    if (!(0 <= row && row < this->rows && 0 <= col && col < this->cols)) return;
+
     this->cells[row][col] = !this->cells[row][col];
     this->changedCells.insert({row, col});
 }
