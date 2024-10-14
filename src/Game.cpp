@@ -19,6 +19,16 @@ void Game::pollEvents() {
             if (this->event.key.code == sf::Keyboard::Right && this->isPaused) {
                 this->board.update();
             }
+
+            if (this->event.key.code == sf::Keyboard::Up) {
+                this->updatesPerSecond *= 2;
+                this->updateInterval = sf::seconds(1.0f / updatesPerSecond);
+            }
+
+            if (this->event.key.code == sf::Keyboard::Down) {
+                this->updatesPerSecond /= 2;
+                this->updateInterval = sf::seconds(1.0f / updatesPerSecond);
+            }
         }
 
         if (this->event.type == sf::Event::MouseButtonPressed) {
@@ -36,10 +46,8 @@ void Game::pollEvents() {
 }
 
 void Game::update() {
-    if (this->isPaused)
-        return;
-
-    this->board.update();
+    if (!this->isPaused)
+        this->board.update();
 }
 
 void Game::draw() {
@@ -51,9 +59,20 @@ void Game::draw() {
 }
 
 void Game::run() {
+    sf::Clock clock;
+    sf::Time timeSinceLastUpdate = sf::Time::Zero;
+
     while (this->window.isOpen()) {
         this->pollEvents();
-        this->update();
+
+        sf::Time elapsed = clock.restart();
+        timeSinceLastUpdate += elapsed;
+
+        while (timeSinceLastUpdate >= updateInterval) {
+            this->update();
+            timeSinceLastUpdate -= updateInterval;
+        }
+
         this->draw();
     }
 }

@@ -10,6 +10,8 @@ private:
     sf::Event event{};
     Board board;
 
+    float updatesPerSecond = 1.0f;
+    sf::Time updateInterval = sf::seconds(1.0f / updatesPerSecond);
     bool isPaused = true;
 
     void pollEvents();
